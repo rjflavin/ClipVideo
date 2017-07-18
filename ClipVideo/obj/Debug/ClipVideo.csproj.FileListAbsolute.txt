@@ -1,0 +1,14 @@
+c:\users\motionlit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\bin\Debug\ClipVideo.exe.config
+c:\users\motionlit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\bin\Debug\ClipVideo.exe
+c:\users\motionlit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\bin\Debug\ClipVideo.pdb
+c:\users\motionlit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\obj\Debug\ClipVideo.csprojResolveAssemblyReference.cache
+c:\users\motionlit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\obj\Debug\Interop.WMPLib.dll
+c:\users\motionlit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\obj\Debug\ClipVideo.csproj.ResolveComReference.cache
+c:\users\motionlit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\obj\Debug\ClipVideo.Form1.resources
+c:\users\motionlit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\obj\Debug\ClipVideo.Properties.Resources.resources
+c:\users\motionlit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\obj\Debug\ClipVideo.csproj.GenerateResource.Cache
+c:\users\motionlit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\obj\Debug\ClipVideo.exe
+c:\users\motionlit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\obj\Debug\ClipVideo.pdb
+c:\users\motionlit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\bin\Debug\Interop.WMPLib.dll
+c:\users\motionlit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\bin\Debug\AxInterop.WMPLib.dll
+c:\users\motionlit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\obj\Debug\AxInterop.WMPLib.dll
