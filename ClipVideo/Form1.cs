@@ -25,20 +25,11 @@ namespace ClipVideo
             //Attach Hook
             attachWindowHook();
 
-
-
             //Initial Video Setup
-            axWindowsMediaPlayer1.Width = (int)(this.Width / 2.2);
-            axWindowsMediaPlayer1.Height = (int)(this.Height / 2.2);
-            axWindowsMediaPlayer1.Location = new Point(0, 0);
             axWindowsMediaPlayer1.URL = @"C:\Cases\SF v Downey\Gonzalez\DVD Video Recording_Title_01_01.mpg";
             axWindowsMediaPlayer1.Ctlcontrols.stop();
             axWindowsMediaPlayer1.settings.autoStart = false;
 
-
-            axWindowsMediaPlayer2.Location = new Point(this.Width / 2, 0);
-            axWindowsMediaPlayer2.Height = (int)(this.Height / 2.2);
-            axWindowsMediaPlayer2.Width = (int)(this.Width / 2.2);
             axWindowsMediaPlayer2.URL = @"C:\Cases\SF v Downey\Gonzalez\DVD Video Recording_Title_01_01.mpg";
             axWindowsMediaPlayer2.Ctlcontrols.stop();
             axWindowsMediaPlayer2.settings.autoStart = false;
@@ -61,21 +52,22 @@ namespace ClipVideo
 
         private void Form1_ResizeEnd(object sender, EventArgs e)
         {
-            axWindowsMediaPlayer1.Width = (int)(this.ClientRectangle.Width / 2);
-            axWindowsMediaPlayer1.Height = (int)(7*this.ClientRectangle.Height / 8);
+            tabControl1.Size = new Size(this.ClientRectangle.Width, this.ClientRectangle.Height);
+            axWindowsMediaPlayer1.Width = (int)(this.tabControl1.SelectedTab.Width / 2);
+            axWindowsMediaPlayer1.Height = (int)(7*this.tabControl1.SelectedTab.Height / 8);
             axWindowsMediaPlayer1.Location = new Point(0, 0);
 
-            axWindowsMediaPlayer2.Location = new Point(this.ClientRectangle.Width / 2, 0);
-            axWindowsMediaPlayer2.Height = (int)(7*this.ClientRectangle.Height / 8);
-            axWindowsMediaPlayer2.Width = (int)(this.ClientRectangle.Width / 2);
+            axWindowsMediaPlayer2.Location = new Point(this.tabControl1.SelectedTab.Width / 2, 0);
+            axWindowsMediaPlayer2.Height = (int)(7*this.tabControl1.SelectedTab.Height / 8);
+            axWindowsMediaPlayer2.Width = (int)(this.tabControl1.SelectedTab.Width / 2);
 
-            loadButton.Location = new Point(0, this.ClientRectangle.Height - this.ClientRectangle.Height / 8);
-            loadButton.Width = this.ClientRectangle.Width / 2;
-            loadButton.Height = this.ClientRectangle.Height /8;
+            loadButton.Location = new Point(0, this.tabControl1.SelectedTab.Height - this.tabControl1.SelectedTab.Height / 8);
+            loadButton.Width = this.tabControl1.SelectedTab.Width / 2;
+            loadButton.Height = this.tabControl1.SelectedTab.Height /8;
 
-            createClipButton.Location = new Point(this.ClientRectangle.Width / 2, this.ClientRectangle.Height - this.ClientRectangle.Height / 8);
-            createClipButton.Width = this.ClientRectangle.Width / 2;
-            createClipButton.Height = this.ClientRectangle.Height / 8;
+            createClipButton.Location = new Point(this.tabControl1.SelectedTab.Width / 2, this.tabControl1.SelectedTab.Height - this.tabControl1.SelectedTab.Height / 8);
+            createClipButton.Width = this.tabControl1.SelectedTab.Width / 2;
+            createClipButton.Height = this.tabControl1.SelectedTab.Height / 8;
         }
 
 
@@ -204,7 +196,6 @@ namespace ClipVideo
         {
             String startTime = axWindowsMediaPlayer1.Ctlcontrols.currentPosition.ToString();
             String endTime = axWindowsMediaPlayer2.Ctlcontrols.currentPosition.ToString();
-            MessageBox.Show("EndTime:" + axWindowsMediaPlayer1.Ctlcontrols.currentMarker.ToString());
             
 
             String runTime = (axWindowsMediaPlayer2.Ctlcontrols.currentPosition - axWindowsMediaPlayer1.Ctlcontrols.currentPosition).ToString();
@@ -221,10 +212,27 @@ namespace ClipVideo
 
             if (!(startTimespan.TotalSeconds > Convert.ToDouble(endTime)))
             {
+                //MPEG 4 ARGUMENTS: -f lavfi -i aevalsrc=0 -shortest -c:v libxvid -qscale:v 2 -c:a libmp3lame
+                //H264 BASELINE: -f lavfi -i aevalsrc=0 -shortest -c:v libx264 -profile:v baseline -crf 23 -c:a aac -strict experimental
+                ProcessStartInfo startInfo = new ProcessStartInfo("ffmpeg", "-y -i \"" + inputFile + "\" -f lavfi -i aevalsrc=0 -shortest -c:v libx264 -profile:v baseline -crf 23 -c:a aac -strict experimental -ss " + startTimespan.ToString().Substring(0, startTimespan.ToString().Length - 4) + " -to " + TimeSpan.FromSeconds(Convert.ToDouble(endTime)) + " " + "\"" + axWindowsMediaPlayer1.URL.ToString().Split('\\')[axWindowsMediaPlayer1.URL.Split('\\').Length - 1].Split('.')[0] + "_" + startTime.ToString().Replace('.', '-') + "_" + endTime.ToString().Replace('.', '-') + ".mp4" + "\"");
+                //startInfo.Arguments = "/K ffmpeg -i \"" + inputFile + "\" -c:v libx264 -preset medium -ss " + startTimespan.ToString().Substring(0, startTimespan.ToString().Length - 4) + " -to " + TimeSpan.FromSeconds(Convert.ToDouble(endTime)) + " " + "\"" + axWindowsMediaPlayer1.URL.ToString().Split('\\')[axWindowsMediaPlayer1.URL.Split('\\').Length - 1].Split('.')[0] + "_" + startTime.ToString().Replace('.', '-') + "_" + endTime.ToString().Replace('.', '-') + ".mp4" + "\"";
+                //startInfo.FileName = "cmd.exe";
+                startInfo.CreateNoWindow = true;
+                startInfo.UseShellExecute = false;
+                startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                startInfo.RedirectStandardOutput = true;
 
-
-                string command = "ffmpeg -i \"" + inputFile + "\" -ss " + startTimespan.ToString().Substring(0, startTimespan.ToString().Length - 4) + " -to " + TimeSpan.FromSeconds(Convert.ToDouble(endTime)) + " " + "\"" + axWindowsMediaPlayer1.URL.ToString().Split('\\')[axWindowsMediaPlayer1.URL.Split('\\').Length - 1].Split('.')[0] + "_" + startTime.ToString().Replace('.', '-') + "_" + endTime.ToString().Replace('.', '-') + "." + axWindowsMediaPlayer1.URL.ToString().Split('\\')[axWindowsMediaPlayer1.URL.Split('\\').Length - 1].Split('.')[1] + "\"";
-                Process.Start("CMD.exe", "/K echo " + command + "&" + command);
+                using (Process proc = Process.Start(startInfo))
+                {
+                    
+                    while (!proc.StandardOutput.EndOfStream)
+                    {
+                        string line = proc.StandardOutput.ReadLine();
+                        Console.WriteLine(line);
+                    }
+                }
+                //string command = "ffmpeg -i \"" + inputFile + "\" -c:v libx264 -preset medium -ss " + startTimespan.ToString().Substring(0, startTimespan.ToString().Length - 4) + " -to " + TimeSpan.FromSeconds(Convert.ToDouble(endTime)) + " " + "\"" + axWindowsMediaPlayer1.URL.ToString().Split('\\')[axWindowsMediaPlayer1.URL.Split('\\').Length - 1].Split('.')[0] + "_" + startTime.ToString().Replace('.', '-') + "_" + endTime.ToString().Replace('.', '-') + ".mp4" + "\"";
+                //Process.Start("CMD.exe", "/K echo " + command + "&" + command);
             }
             else
             {
@@ -232,6 +240,4 @@ namespace ClipVideo
             }
         }
     }
-
-
 }

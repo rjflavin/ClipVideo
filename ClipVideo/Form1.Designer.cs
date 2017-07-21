@@ -29,51 +29,88 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.clipVideoTab = new System.Windows.Forms.TabPage();
+            this.combineVideoTab = new System.Windows.Forms.TabPage();
             this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.loadButton = new System.Windows.Forms.Button();
             this.createClipButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.clipVideoTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
-            // axWindowsMediaPlayer1
+            // tabControl1
             // 
-            this.axWindowsMediaPlayer1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(12, 12);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(750, 456);
-            this.axWindowsMediaPlayer1.TabIndex = 0;
-            this.axWindowsMediaPlayer1.Enter += new System.EventHandler(this.axWindowsMediaPlayer1_Enter);
+            this.tabControl1.Controls.Add(this.clipVideoTab);
+            this.tabControl1.Controls.Add(this.combineVideoTab);
+            this.tabControl1.Location = new System.Drawing.Point(5, 5);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1814, 837);
+            this.tabControl1.TabIndex = 4;
+            // 
+            // clipVideoTab
+            // 
+            this.clipVideoTab.Controls.Add(this.createClipButton);
+            this.clipVideoTab.Controls.Add(this.loadButton);
+            this.clipVideoTab.Controls.Add(this.axWindowsMediaPlayer1);
+            this.clipVideoTab.Controls.Add(this.axWindowsMediaPlayer2);
+            this.clipVideoTab.Location = new System.Drawing.Point(4, 25);
+            this.clipVideoTab.Name = "clipVideoTab";
+            this.clipVideoTab.Padding = new System.Windows.Forms.Padding(3);
+            this.clipVideoTab.Size = new System.Drawing.Size(1806, 808);
+            this.clipVideoTab.TabIndex = 0;
+            this.clipVideoTab.Text = "Clip Video";
+            this.clipVideoTab.UseVisualStyleBackColor = true;
+            // 
+            // combineVideoTab
+            // 
+            this.combineVideoTab.Location = new System.Drawing.Point(4, 25);
+            this.combineVideoTab.Name = "combineVideoTab";
+            this.combineVideoTab.Padding = new System.Windows.Forms.Padding(3);
+            this.combineVideoTab.Size = new System.Drawing.Size(1806, 808);
+            this.combineVideoTab.TabIndex = 1;
+            this.combineVideoTab.Text = "Combine Video";
+            this.combineVideoTab.UseVisualStyleBackColor = true;
             // 
             // axWindowsMediaPlayer2
             // 
             this.axWindowsMediaPlayer2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.axWindowsMediaPlayer2.Enabled = true;
-            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(867, 12);
+            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(874, 7);
             this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
             this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
-            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(872, 456);
-            this.axWindowsMediaPlayer2.TabIndex = 1;
+            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(919, 691);
+            this.axWindowsMediaPlayer2.TabIndex = 2;
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(7, 7);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(861, 695);
+            this.axWindowsMediaPlayer1.TabIndex = 3;
             // 
             // loadButton
             // 
-            this.loadButton.Location = new System.Drawing.Point(12, 494);
+            this.loadButton.Location = new System.Drawing.Point(6, 704);
             this.loadButton.Name = "loadButton";
-            this.loadButton.Size = new System.Drawing.Size(750, 92);
-            this.loadButton.TabIndex = 2;
+            this.loadButton.Size = new System.Drawing.Size(862, 92);
+            this.loadButton.TabIndex = 4;
             this.loadButton.Text = "Load";
             this.loadButton.UseVisualStyleBackColor = true;
-            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
             // 
             // createClipButton
             // 
-            this.createClipButton.Location = new System.Drawing.Point(867, 494);
+            this.createClipButton.Location = new System.Drawing.Point(874, 703);
             this.createClipButton.Name = "createClipButton";
-            this.createClipButton.Size = new System.Drawing.Size(872, 92);
-            this.createClipButton.TabIndex = 3;
+            this.createClipButton.Size = new System.Drawing.Size(925, 92);
+            this.createClipButton.TabIndex = 5;
             this.createClipButton.Text = "Create Clip";
             this.createClipButton.UseVisualStyleBackColor = true;
             this.createClipButton.Click += new System.EventHandler(this.createClipButton_Click);
@@ -83,27 +120,28 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1822, 845);
-            this.Controls.Add(this.createClipButton);
-            this.Controls.Add(this.loadButton);
-            this.Controls.Add(this.axWindowsMediaPlayer2);
-            this.Controls.Add(this.axWindowsMediaPlayer1);
+            this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "ClipVideo";
             this.ResizeBegin += new System.EventHandler(this.Form1_ResizeEnd);
             this.ResizeEnd += new System.EventHandler(this.Form1_ResizeEnd);
             this.SizeChanged += new System.EventHandler(this.Form1_ResizeEnd);
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.clipVideoTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
+        private System.Windows.Forms.TabPage clipVideoTab;
+        private System.Windows.Forms.Button createClipButton;
+        private System.Windows.Forms.Button loadButton;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer2;
-        private System.Windows.Forms.Button loadButton;
-        private System.Windows.Forms.Button createClipButton;
+        private System.Windows.Forms.TabPage combineVideoTab;
+        public System.Windows.Forms.TabControl tabControl1;
     }
 }
 
