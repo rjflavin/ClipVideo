@@ -12,3 +12,11 @@ c:\users\motionlit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\obj
 c:\users\motionlit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\bin\Debug\Interop.WMPLib.dll
 c:\users\motionlit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\bin\Debug\AxInterop.WMPLib.dll
 c:\users\motionlit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\MotionLit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\bin\Debug\NAudio.dll
+C:\Users\MotionLit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\bin\Debug\NAudio.pdb
+C:\Users\MotionLit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\bin\Debug\NAudio.xml
+C:\Users\MotionLit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\MotionLit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\bin\Debug\Microsoft.WindowsAPICodePack.ExtendedLinguisticServices.dll
+C:\Users\MotionLit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\bin\Debug\Microsoft.WindowsAPICodePack.Sensors.dll
+C:\Users\MotionLit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\MotionLit\documents\visual studio 2017\Projects\ClipVideo\ClipVideo\bin\Debug\Microsoft.WindowsAPICodePack.ShellExtensions.dll
